@@ -1,0 +1,28 @@
+<h2>There are <%= @members.count %> members in the <%= @view_nation %></h2>
+
+<% @members.each do |member| %>
+<section class='member'>
+    <h4 class='name'><%= member.name %></h4>
+    <div class='photo'><%= image_tag("#{member.photo}") %></div>
+    <div class='allies'>
+    <h6>Allies</h6>
+    <ul>
+    <% member.allies.each do |ally|%>
+        <li><%= ally %></li>
+    <% end %>
+    </ul>
+    </div>
+    <div class='enemies'>
+    <h6>Enemies</h6>
+    <ul>
+    <% member.enemies.each do |enemy|%>
+        <li><%= enemy %></li>
+    <% end %>
+    </ul>
+    </div>
+    <div class='affiliation'>
+    <h6>Affiliation</h6>
+    <%=member.affiliation%>
+    </div>
+</section>
+<% end %>
